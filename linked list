@@ -1,0 +1,53 @@
+package baglılısteler;
+
+class eleman {
+
+    int içerik;
+    eleman ılerı;
+
+    public eleman(int içerik) {
+        this.içerik = içerik;
+        ılerı = null;
+
+    }
+}
+
+class lıste {
+
+    eleman bas;
+    eleman son;
+
+    public lıste() {
+        bas = null;
+        son = null;
+    }
+
+    void basaekle(eleman e) {
+        if (son == null) {
+            bas = e;
+            son = e;
+        } else {
+            e.ılerı = bas;
+            bas = e;
+        }
+
+    }
+}
+
+public class Baglılısteler {
+
+    public static void main(String[] args) {
+        lıste l1 = new lıste();
+        l1.basaekle(new eleman(2));
+        l1.basaekle(new eleman(5));
+        l1.basaekle(new eleman(6));
+        l1.basaekle(new eleman(5));
+        eleman tpm = l1.bas;
+        while (tpm != null) {
+            System.out.print(tpm.içerik + " -----> " );
+             tpm = tpm.ılerı;
+        }
+   
+    }
+
+}
